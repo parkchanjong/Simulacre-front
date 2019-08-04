@@ -65,6 +65,6 @@ export default () => (
 				<Link href="#">language</Link>
 			</ListItem>
 		</List>
-		<Copyright>Instaclone {new Date().getFullYear()} &copy;</Copyright>
+		<Copyright>Simulacre {new Date().getFullYear()} &copy;</Copyright>
 	</Footer>
 );
