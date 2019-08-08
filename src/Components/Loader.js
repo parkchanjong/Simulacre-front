@@ -15,13 +15,13 @@ const Animation = keyframes`
 `;
 
 const Loader = styled.div`
-	animation: ${Animation} 1s linear infinite;
-	width: 100%;
-	text-align: center;
+  animation: ${Animation} 1s linear infinite;
+  width: 100%;
+  text-align: center;
 `;
 
 export default () => (
-	<Loader>
-		<Logo size={36} />
-	</Loader>
+  <Loader>
+    <Logo size={36} />
+  </Loader>
 );

@@ -12,37 +12,37 @@ import Footer from './Footer';
 import Header from './Header';
 
 const QUERY = gql`
-	{
-		isLoggedIn @client
-	}
+  {
+    isLoggedIn @client
+  }
 `;
 
 const Wrapper = styled.div`
-	margin: 0 auto;
-	max-width: ${props => props.theme.maxWidth};
-	width: 100%;
+  margin: 0 auto;
+  max-width: ${props => props.theme.maxWidth};
+  width: 100%;
 `;
 
 export default () => {
-	const {
-		data: { isLoggedIn },
-	} = useQuery(QUERY);
+  const {
+    data: { isLoggedIn },
+  } = useQuery(QUERY);
 
-	return (
-		<ThemeProvider theme={Theme}>
-			<>
-				<GlobalStyles />
-				<Router>
-					<>
-						{isLoggedIn && <Header />}
-						<Wrapper>
-							<Routes isLoggedIn={isLoggedIn} />
-							<Footer />
-						</Wrapper>
-					</>
-				</Router>
-				<ToastContainer position={toast.POSITION.BOTTOM_LEFT} />
-			</>
-		</ThemeProvider>
-	);
+  return (
+    <ThemeProvider theme={Theme}>
+      <>
+        <GlobalStyles />
+        <Router>
+          <>
+            {isLoggedIn && <Header />}
+            <Wrapper>
+              <Routes isLoggedIn={isLoggedIn} />
+              <Footer />
+            </Wrapper>
+          </>
+        </Router>
+        <ToastContainer position={toast.POSITION.BOTTOM_LEFT} />
+      </>
+    </ThemeProvider>
+  );
 };
