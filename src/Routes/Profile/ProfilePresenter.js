@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Helmet } from 'rl-react-helmet';
+import { Helmet } from 'react-helmet';
 import Loader from '../../Components/Loader';
 import Avatar from '../../Components/Avatar';
 import FatText from '../../Components/FatText';
@@ -86,7 +86,7 @@ export default ({ loading, data, logOut }) => {
     return (
       <Wrapper>
         <Helmet>
-          <title>{username} | Prismagram</title>
+          <title>{username} | Simulacre</title>
         </Helmet>
         <Header>
           <HeaderColumn>
