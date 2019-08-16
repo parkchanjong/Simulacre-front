@@ -7,6 +7,8 @@ import FatText from '../../Components/FatText';
 import FollowButton from '../../Components/FollowButton';
 import SquarePost from '../../Components/SquarePost';
 import Button from '../../Components/Button';
+import { MdSettings } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
   min-height: 100vh;
@@ -96,7 +98,12 @@ export default ({ loading, data, logOut }) => {
             <UsernameRow>
               <Username>{username}</Username>{' '}
               {isSelf ? (
-                <Button onClick={logOut} text="Log Out" />
+                <>
+                  <Button onClick={logOut} text="Log Out" />
+                  <Link to={`/EditProfile`}>
+                    <MdSettings />
+                  </Link>
+                </>
               ) : (
                 <FollowButton isFollowing={isFollowing} id={id} />
               )}
