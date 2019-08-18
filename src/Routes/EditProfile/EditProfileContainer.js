@@ -1,56 +1,42 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
-import Input from '../../Components/Input';
-import Button from '../../Components/Button';
+import EditProfilePresenter from './EditProfilePresenter';
+import useInput from '../../Hooks/useInput';
+import { useMutation } from 'react-apollo-hooks';
+import { EDITPROFILE } from './EditProfileQueries';
+import { toast } from 'react-toastify';
 
-const Wrapper = styled.div`
-  min-height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`;
+export default () => {
+  const username = useInput('');
+  const firstName = useInput('');
+  const lastName = useInput('');
+  const [editMutation] = useMutation(EDITPROFILE, {
+    variables: {
+      username: username.value,
+      firstName: firstName.value,
+      lastName: lastName.value,
+    },
+  });
 
-const Box = styled.div`
-  ${props => props.theme.whiteBox}
-  border-radius:0px;
-  width: 100%;
-  max-width: 350px;
-`;
-
-const Form = styled(Box)`
-  padding: 40px;
-  padding-bottom: 30px;
-  margin-bottom: 15px;
-  form {
-    width: 100%;
-    input {
-      width: 100%;
-      &:not(:last-child) {
-        margin-bottom: 7px;
+  const onSubmit = async e => {
+    e.preventDefault();
+    try {
+      const { data: editUser } = await editMutation();
+      if (!editUser) {
+        toast.error('x');
+      } else {
+        toast.success('o');
       }
+    } catch (e) {
+      toast.error(e.message);
     }
-    button {
-      margin-top: 10px;
-    }
-  }
-`;
+  };
 
-export default ({ onSubmit, firstName, lastName, username }) => (
-  <Wrapper>
-    <>
-      <Form>
-        <Helmet>
-          <title>Edit Profile | Simulacre</title>
-        </Helmet>
-        <form onSubmit={onSubmit}>
-          <Input placeholder={'First name'} {...firstName} />
-          <Input placeholder={'Last name'} {...lastName} />
-          <Input placeholder={'Username'} {...username} />
-          <Button text={'Sign up'} />
-        </form>
-      </Form>
-    </>
-  </Wrapper>
-);
+  return (
+    <EditProfilePresenter
+      username={username}
+      firstName={firstName}
+      lastName={lastName}
+      onSubmit={onSubmit}
+    />
+  );
+};

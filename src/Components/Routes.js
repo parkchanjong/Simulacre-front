@@ -7,12 +7,14 @@ import Explore from '../Routes/Explore';
 import Search from '../Routes/Search';
 import Profile from '../Routes/Profile';
 import EditProfile from '../Routes/EditProfile';
+import Upload from '../Routes/Upload';
 
 const LoggedInRoutes = () => (
   <Switch>
     <Route exact path="/" component={Explore} />
     <Route path="/Feed" component={Feed} />
     <Route path="/search" component={Search} />
+    <Route path="/Upload" component={Upload} />
     <Route path="/EditProfile" component={EditProfile} />
     <Route path="/:username" component={Profile} />
     <Redirect from="*" to="/" />

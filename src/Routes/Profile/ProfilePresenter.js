@@ -99,6 +99,9 @@ export default ({ loading, data, logOut }) => {
               <Username>{username}</Username>{' '}
               {isSelf ? (
                 <>
+                  <Link to={`/Upload`}>
+                    <Button text="Upload" />
+                  </Link>
                   <Button onClick={logOut} text="Log Out" />
                   <Link to={`/EditProfile`}>
                     <MdSettings />
