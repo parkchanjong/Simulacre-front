@@ -102,9 +102,10 @@ export default ({ loading, data, logOut }) => {
                   <Link to={`/Upload`}>
                     <Button text="Upload" />
                   </Link>
+
                   <Button onClick={logOut} text="Log Out" />
                   <Link to={`/EditProfile`}>
-                    <MdSettings />
+                    <MdSettings size={25} />
                   </Link>
                 </>
               ) : (

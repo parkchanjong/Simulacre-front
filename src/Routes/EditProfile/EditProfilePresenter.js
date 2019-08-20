@@ -37,7 +37,7 @@ const Form = styled(Box)`
   }
 `;
 
-export default ({ onSubmit, firstName, lastName, username }) => (
+export default ({ onSubmit, firstName, lastName, username, bio }) => (
   <Wrapper>
     <>
       <Form>
@@ -48,6 +48,7 @@ export default ({ onSubmit, firstName, lastName, username }) => (
           <Input placeholder={'First name'} {...firstName} />
           <Input placeholder={'Last name'} {...lastName} />
           <Input placeholder={'Username'} {...username} />
+          <Input placeholder={'Bio'} {...bio} />
           <Button text={'Sign up'} />
         </form>
       </Form>

@@ -9,11 +9,13 @@ export default () => {
   const username = useInput('');
   const firstName = useInput('');
   const lastName = useInput('');
+  const bio = useInput('');
   const [editMutation] = useMutation(EDITPROFILE, {
     variables: {
       username: username.value,
       firstName: firstName.value,
       lastName: lastName.value,
+      bio: bio.value,
     },
   });
 
@@ -36,6 +38,7 @@ export default () => {
       username={username}
       firstName={firstName}
       lastName={lastName}
+      bio={bio}
       onSubmit={onSubmit}
     />
   );
