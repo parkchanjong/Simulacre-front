@@ -6,6 +6,7 @@ import useInput from '../Hooks/useInput';
 import { Compass, HeartEmpty, User, Logo } from './Icons';
 import { useQuery } from 'react-apollo-hooks';
 import { ME } from '../SharedQueries';
+import Avatar from './Avatar';
 
 const Header = styled.header`
   width: 100%;
@@ -70,6 +71,7 @@ export default withRouter(({ history }) => {
     e.preventDefault();
     history.push(`/search?term=${search.value}`);
   };
+
   return (
     <Header>
       <HeaderWrapper>
